@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	  <meta charset="utf-8">
+    <title>Mosho.js Demo</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Josefin+Sans|Actor' rel='stylesheet' type='text/css'>
+    <link href="css/demo.css" rel="stylesheet" type="text/css">
+		<link href="css/prettify.css" rel="stylesheet" type="text/css">
+		<link href="css/tomorrow-night.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="mosho">
+      
+      <div class="mosho-slide" id="title" data-scale=1>
+        <h1>Les moteurs de Template</h1>
+        <p>Terrain d'entente entre intégrateurs et développeurs</p>
+				<br />
+				<h4>- bertrandkeller -</h4>
+      </div>
+      
+      <div class="mosho-slide" id="introduction" data-x=1120>
+        <h2>Un bref survol</h2>
+				<p>Les systèmes de template ont pour objectif de permettre à une équipe de développement de séparer la présentation de la logique applicative et du contenu.</p>
+      </div>
+      
+      <div class="mosho-slide" id="templateengine" data-x=1120 data-y=-800 data-z=800 data-rotx=45>
+        <h3>Les moteurs les plus connus</h3>
+        <ul>
+					<li><a href="http://www.smarty.net/">Smarty</a> - PHP</li>
+					<li><a href="http://phptal.org/">PHP TAL</a> - PHP</li>
+					<li><a href="http://wiki.typo3.org/Fluid">FLUID</a> - PHP</li>
+					<li><a href="http://github.com/mitsuhiko/twig">Twig</a> - PHP</li>
+					<li><a href="http://haml.info/">HAML</a> - Ruby</li>
+					<li><a href="http://handlebarsjs.com/">Handelbars</a> - JS</li>
+				</ul>
+      </div>
+
+			<div class="mosho-slide" id="PHP" data-x=2240 data-y=-800 data-z=800 data-rotx=45>
+        <h3>PHP</h3>
+				<xmp class="code prettyprint linenums">
+					<?php if(!empty($foo)): ?>
+					  <?php foreach($foo as $bar): ?>
+					     <li><a href="<?=$bar['zig']?>"><?=$bar['zag']?></a></li>
+					     <li><a href="<?=$bar['zig2']?>"><?=$bar['zag2']?></a></li>
+					     <li><a href="<?=$bar['zig3']?>"><?=$bar['zag3']?></a></li> 
+					  <?php endforeach; ?>
+					<?php else: ?>
+      There were no rows found.
+					<?php endif; ?>
+				</xmp>
+				<p><a href="http://www.wordpress.org">WordPress</a> - <a href="http://www.drupal.org">Drupal</a></p>
+      </div>
+
+			<div class="mosho-slide" id="smarty" data-x=2240 data-y=-800 data-z=800 data-rotx=45>
+        <h3>Smarty</h3>
+				<xmp class="code prettyprint linenums">
+					<ul>
+     {foreach from=$myArray item=foo}
+					 <li>{$foo}</li>
+     {foreachelse}
+					 <li>No item found</li>
+     {/foreach}
+					</ul>
+				</xmp>
+				<p><a href="http://www.wordpress.org">WordPress</a> - <a href="http://www.drupal.org">Drupal</a></p>
+      </div>
+      
+      <div class="mosho-slide" id="fluid" data-x=2240 data-y=-800 data-z=800 data-rotx=45>
+        <h3>Fluid (Typo3)</h3>
+				<xmp class="code prettyprint linenums">
+					<f:if condition="{shoppinglist}">
+					 <ul>  
+					  <f:then>
+					   <f:for each="{shoppinglist}" as="food" key="number">
+					    <li>{number}: {food}</li>
+					   </f:for>
+					  </f:then>
+					  <f:else>
+					    <li>No item found</li>
+					  </f:else>
+					 </ul>
+					</f:if>	
+				</xmp>
+				<p><a href="http://www.typo3.org">TYPO3</a></p>
+      </div>
+
+			<div class="mosho-slide" id="twig" data-x=2240 data-y=-800 data-z=800 data-rotx=45>
+        <h3>Twig (Symfony)</h3>
+				<xmp class="code prettyprint linenums">
+					<ul>
+       {% for user in users %}
+					  <li>{{ user.username|e }}</li>
+       {% else %}
+					  <li><em>no user found</em></li>
+       {% endfor %}
+					</ul>
+				</xmp>
+				<p><a href="http://www.symfony.org">Symfony</a></p>
+      </div>
+
+			<div class="mosho-slide" id="handelbars" data-x=2240 data-y=-800 data-z=800 data-rotx=45>
+        <h3>Handelbars</h3>
+				<xmp class="code prettyprint linenums">
+					<ul class="people_list">
+      {{#each people}}
+	 				  <li>{{this}}</li>
+      {{/each}}
+					</ul>
+				</xmp>
+      </div>
+
+      <div class="mosho-slide" id="avantages" data-x=1120 data-y=1120 data-transition="2s ease">
+        <h2>Les avantages et les inconvénients</h2>
+      </div>
+
+			<div class="mosho-slide" id="avantages-list" data-x=1120>
+				<h3>Avantages</h3>
+					<li>Meilleure visibilité dans le code</li>
+					<li>Economie de ressources des serveurs grâce à la mise en cache</li>
+					<li>Logique applicative séparée de la présentation</li>
+					
+				<h3>Inconvénients</h3>
+					<li>Chargement de votre page retardé</li>
+					<li>Langage de template à apprendre</li>
+					<li>Lecture des erreurs compliquée</li>
+      </div>
+
+      <div class="mosho-slide" id="structure" data-x=1120 data-y=1120 data-transition="2s ease">
+        <h2>Pourquoi utiliser un moteur de template ?</h2>
+      </div>
+
+			<div class="mosho-slide" id="structure1" data-x=1120 data-y=1120 data-transition="2s ease">
+				<h3>Périmètre classique</h3>
+				<img src="structure1.png" />
+      </div>
+
+			<div class="mosho-slide" id="structure2" data-x=1120 data-y=1120 data-transition="2s ease">
+				<h3>Périmètre partagé</h3>
+				<img src="structure2.png" />
+      </div>
+      
+      <div class="mosho-slide" id="hierarchy" data-x=1120 data-y=1120 data-transition="2s ease">
+          <h3>Développement hiérarchisé</h3>
+          <img src="structure3.png" />
+      </div>
+
+			<div class="mosho-slide" id="process" data-x=1120 data-y=1120 data-transition="2s ease">
+          <h3>Structure first</h3>
+          <img src="structure4.png" />
+      </div>
+      
+      <div class="mosho-slide" id="questions"
+           data-prev="nonlinear"
+           data-x=1120 data-y=2240>
+        <h2>Questions ?</h2>
+      </div>
+      
+      <div class="mosho-slide" id="thanks" data-x=1120 data-y=2240 data-z=-480 data-roty=-180>
+        <h3>Merci !</h3>
+        <pre class="code" style="width: 500px">
+					<br />
+					<br />
+					<p>Twitter : @bertrandkeller<br />Blog : http://www.bertrandkeller.info</p>
+				</pre>
+      </div>
+    </div>
+  </body>
+  <script src="js/mosho.js"></script>
+  <script src="js/demo.js"></script>
+	<script src="js/highlight.pack.js"></script>
+	<script src="js/prettify.js"></script>
+	<script>
+	hljs.initHighlightingOnLoad();
+	prettyPrint();
+	</script>
+</html>
